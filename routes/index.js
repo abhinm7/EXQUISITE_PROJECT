@@ -171,7 +171,4 @@ router.post('/login', (req, res) => {
 });
 
 
-router.get('/home/',(req,res)=>{
-  res.redirect('/');
-})
 module.exports = router;
