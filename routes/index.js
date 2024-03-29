@@ -150,7 +150,7 @@ router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
   // Check if the user is an admin
-  if (username === 'NANDALAL_KV' && password === '4424') {
+  if (username === 'admin' && password === 'admin123') {
       // If admin, render the admin page
       res.redirect('/admin');
   } else {
