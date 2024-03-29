@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fashion commerce</title>
+
+  <link href="/stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/popup.css" rel="stylesheet">
+  <link href="/stylesheets/main.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@300&family=Cinzel+Decorative&display=swap"
+    rel="stylesheet">
+    
+    
+  
+</head>
+
+<body>
+  <div class="head">
+    <h1 class="title">Exquisite</h1>
+    
+    <div class="search1">
+      {{!-- <a href="signin.html"><button class="signButton">sign in</button></a> --}}
+      
+      <input class="search" type="text" placeholder="search" id="searchInput">
+
+      <a><i onclick="search()" class="mag fa-solid fa-magnifying-glass fa-xl"></i></a>
+
+    </div>
+
+  </div>
+  <div>
+    <nav class="navbar">
+      <div id="navbar">
+       
+      </div>
+     
+    </nav>
+  </div>
+  <div class="dflex">
+    <div class="confirmDiv">
+
+        <h1>ORDER PLACED SUCCESSFULLY !!!</h1>
+         <h4>Your product will be delievered in 3 bussiness Days</h4>
+       <div class="orderDetails">
+         <div class="orderedItems"> 
+          {{#each orders}}
+          <div class="orderedItem">
+            <img class="thisImg" src="{{this.img}}">
+               <p class="thisName">{{this.name}}</p>&nbsp;<p class="thisPrice">Rs.{{this.price}}/-</p>
+
+          </div>
+          
+         {{/each}}
+         
+            
+          </div>
+          <div class="paymentInfo">
+           <div class="DeliveryDetails">
+            <h3>DELIVERY DETAILS</h3>     
+            <hr>
+            <div><p>Name</p><p class="bold">{{name}}</p></div>
+            <div><p>phone</p><p class="bold">{{phone}}</p></div>
+            <div><p>Pin code </p><p class="bold">{{pin}}</p></div>
+            <div> <p>Address </p><p class="bold">{{address}},{{town}}</p></div>
+            <div><p>No. of Items</p><p class="bold">{{number}}</p></div>
+           </div>
+           
+           <div class="priceDetails">
+            <h3>AMOUNT DETAILS</h3>
+            <hr>
+            <div><p>Total price         </p><p class="total">{{bagTotal}}</p></div>
+            <div><p>Convenience fee     </p><p class="serv">199</p></div>
+            <div><p>Service charge      </p><p class="serv">99</p></div>
+            <div><p>Delivery charge     </p><p class="serv">199</p></div>
+            <div><p>GST                 </p><p class="serv">189</p></div>
+            <div><P>Discount            </P><p class="dis">{{discount}}</p></div>
+            <div><h4>Amount to be paid   </h4><p class="final">{{finalAmt}}</p></div>   
+           </div>
+           <form action="/home/" method="get">
+           <button type="submit" class="orderButton">CONTINUE SHOPPING</button>
+           </form>
+           
+          </div>
+       </div>
+ </div>
+ <div onclick="closeConfirmBox()" id="confirmBox" class="confirmBox">
+
+ </div>
+  </div>
+
+
+
+
+<footer id="footer" class="footer">
+  <ul class="social-icon">
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a></li>
+  </ul>
+  <ul class="menu">
+    <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+  </ul>
+  <hr style="width:800px">
+  <p>&copy;2024 abhinm | All Rights Reserved</p>
+</footer>
+
+
+
+<script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+<script src="/javascripts/popup.js"></script>
+<script  src="/javascripts/mainscript.js"></script>
+
+</body>
+
+</html>

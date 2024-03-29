@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+    <link href="/stylesheets/admin.css" rel="stylesheet">
+</head>
+<body>
+ <div class="head">
+    <h2 class="heading">Exquisite</h2><h4>(ADMIN LOGIN)</h4>
+ </div>
+    <div class="dflex">
+<div class="container">
+    
+    <div class="adminDatas">
+        
+        
+        <div class="orderSection">
+            
+            <select id="mySelect">
+                <option value="5">Available Items</option>
+                <option value="1">Customers</option>
+                <option value="2">Userdata</option>
+                <option value="3">Orders</option>
+                <option value="4">Orders Products</option>
+            </select>
+            <div class="newOrders">
+
+
+        <div class="items" id="items">
+            <table>
+    <thead>
+        <tr><th>productId </th>
+        <th>Img </th>
+        <th>product </th>
+        <th>Brand </th>
+        <th>Price </th>
+        <th>Edit </th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>{{#each data}}
+        <td>{{this.productId}}</td>
+        <td><img class="itemImg" src="{{this.img}}"></td>
+        <td>{{this.name}}</td>
+        <td>{{this.company}}</td>
+        <td>{{this.price}}</td>
+        <td><i onclick="editItem({{this.productId}},'{{this.name}}',{{this.price}},'{{this.company}}')" class="fa-solid fa-pen-to-square"></i></td></tr>
+        
+        {{/each}}
+    </tbody>
+</table>
+
+
+        </div>
+        <div class="editBox" id="editBox">
+            <h2>Edit</h2>
+            <br>
+            <form action="/admin/updateDetails" method="POST">
+                <input id="nameInput" type="text" placeholder="name" name="name">
+    <input id="compInput" type="text" placeholder="compeny" name="company">
+    <input id="priceInput" type="text" placeholder="price" name="price">
+    <input id="idInput" type="hidden" value="" name="id">
+    <button type="submit">UPDATE</button>
+            </form><br>
+           <button class="btn2" onclick="closeEdit()"> CANCEL</button>
+    
+</div>
+
+        {{!-- end of items --}}
+
+                <div class="Customers" id="Customers">
+                    <table class="cusTable">
+                    <h4>Customers Details :</h4>
+                    <tr>
+                   <th>CustomerId</th>
+                   <th>Name</th>
+                   <th>Address</th>
+                   <th>Phone</th>
+                   <th>pin</th>
+                   <th>town</th>
+                </tr>
+                    {{#each tdata}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.address}}</td>
+                        <td>{{this.phone}}</td>
+                        <td>{{this.pin}}</td>
+                        <td>{{this.town}}</td>
+                    </tr>
+                    {{/each}}
+                   
+                </table>
+                </div>
+                
+                <div class="userData" id="userData">
+                    <h4>User data :</h4>
+                <table class="userTable">
+                    <thead>
+                        <th>user Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Remove user</th>
+                    </thead>
+                    <tbody>
+                        {{#each userdata}}
+                       
+                         <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{username}}</td>
+                            <td>{{password}}</td>
+                            <td><form action="/admin/delete" method="POST">
+                            <input type="hidden" value="{{id}}" name="id">
+                            <button>Delete</button></form></i></td>
+                        </tr>
+                       
+                        {{/each}}
+                    </tbody>
+                </table>
+                </div>
+                <div class="orders" id="orders">
+                    <h4>Orders :</h4>
+                    <table>
+                        <thead>
+                            <th>Order id</th>
+                            <th>Customer Id</th>
+                            
+                            <th>Price</th>
+                        </thead>
+                        <tbody>
+                            {{#each orders}}
+                            <tr>
+                                <td>{{orderId}}</td>
+                                <td>{{customerId}}</td>
+                                <td>{{price}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="orderdetails" id="orderdetails">
+                    <h4>Ordered Products</h4>
+                    <table class="detTable">
+                        <thead>
+                            <th>Order Id</th>
+                            <th>Product Id</th>
+                            <th>Product Image</th>
+                            
+                        </thead>
+                        <tbody>
+                            {{#each ordersDetails}}
+                            <tr>
+                                <td>{{orderId}}</td>
+                                <td>{{productId}}</td>
+                                <td><img class="itemImg" src="{{img}}" alt=""></td>
+                                
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+   
+    
+</div>
+    </div>
+    <script src="javascripts/adminscript.js"></script>
+    <script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+</body>
+</html>

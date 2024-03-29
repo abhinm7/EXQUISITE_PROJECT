@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fashion commerce</title>
+
+  <link href="/stylesheets/style.css" rel="stylesheet">
+  <link href="/stylesheets/popup.css" rel="stylesheet">
+  <link href="/stylesheets/main.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@300&family=Cinzel+Decorative&display=swap"
+    rel="stylesheet">
+    
+    
+  
+</head>
+
+
+
+
+
+<body>
+  <div class="head">
+    <h1 class="title">Exquisite</h1>
+    
+    <div class="search1">
+      {{!-- <a href="signin.html"><button class="signButton">sign in</button></a> --}}
+      
+      <input class="search" type="text" placeholder="search" id="searchInput">
+
+      <a><i onclick="search()" class="mag fa-solid fa-magnifying-glass fa-xl"></i></a>
+
+    </div>
+
+  </div>
+  <div>
+    <nav class="navbar">
+      <div id="navbar">
+        <ul>
+          <!-- Navigation items -->
+          <li><a onclick="createProductCardM()">MEN</a></li>
+          <li><a onclick="createProductCardW()">WOMEN</a></li>
+          <li><a onclick="createProductCardC()">CASUAL</a></li>
+          {{!-- <li><a href="#">FORMAL</a></a></li> --}}
+        </ul>
+      </div>
+     
+    </nav>
+  </div>
+
+
+<div class="dflex">
+
+  <div id="productContainers">
+    <div id="productContainer" class="container"></div>
+  
+    <div id="productContainerW" class="container"></div>
+
+    <div id="productContainerC" class="container"></div>
+
+  </div>
+   
+
+    
+</div>
+
+<div class="overlay" id="overlay" onclick="closePopup();closeAddress()"></div>
+
+  <div class="popup-container" id="popup">
+   
+    
+    
+  </div>
+  <div class="cartInfo" onclick="viewCart()" id="cartInfo">
+    
+  </div>
+
+
+  
+  <div class="cartView" id="cartView">
+
+    <div class="headAndClose"><h1>CART LIST :</h1><span onclick="closeCart()" class="closebtn2">Continue shoping ></span></div>
+    
+   <div class="cartMain">
+    <div class="cartcardsofcards"><div class="cartCards" id="cartCards"></div>
+     
+
+
+   </div>
+   <div class="orderDetailCard">
+    <div class="orderDetailCarddiv" id="ordrDetailUpdate">
+      <div><h4>Order details</h4><p id="itemsCount"></p></div>
+     <div><span>Bag total</span><p id="bagTotal">4999</p></div>
+     <div><span>convinience fee</span><p id="convinienceFee">199</p></div>
+     <div><span>service charge</span><p id="serviceCharge">99</p></div>
+     <div><span>Delivery charge</span><p id="deliveryCharge">199</p></div>
+     <div><span>GST :</span><p id="deliveryCharge">189</p></div>
+     <div><h5>discount :</h5><h5 id="discount">19</h5></div>
+     <div><h4>Total :</h4><h4 id="total">8999</h4></div>
+    </div>
+     
+     <div class="orderBtn"><button onclick="giveAddress()" class="pButton">Place Order</button></div>
+   </div>
+   
+   </div>
+    
+    
+  </div>
+  
+  <div class="addressBox" id="addressBox">
+    <form class="formStyle" id="addressForm" action="/address" method="post">
+      <div class="displayFlex"><h2 class="contacthead redcolor">ENTER YOUR CONTACT DETAILS :</h2><span class="timesRight" onclick="closeAddress()">&times;</span>
+        </div>
+        <h4 class="contacthead">Contact</h4>
+        <input id="name" class="addressInput" type="text" placeholder="Name" name="name">
+        <br>
+        <input id="phone" class="addressInput" type="text" placeholder="Phone number" name="phone">
+        <h4 class="contacthead">Address</h4>
+
+        <input id="pin" class="addressInput" type="text" placeholder="pincode" name="pin">
+
+        <br>
+        <input id="address" class="addressInput" type="text" placeholder="Address" name="address">
+        <br>
+        <input id="town" class="addressInput" type="text" placeholder="Locality/town" name="town">
+
+        <br>
+        <hr class="line">
+        <input type="hidden" id="orderItems" name="orderItems">
+        <input type="hidden" id="bagPrice" name="bagTotal" value="">
+        <button type="submit" onclick="order()" class="pButton">Confirm Order</button>
+        
+    </form>
+</div>
+
+<footer id="footer" class="footer">
+  <ul class="social-icon">
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a></li>
+    <li class="social-icon__item"><a class="social-icon__link" href="#">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a></li>
+  </ul>
+  <ul class="menu">
+    <li class="menu__item"><a class="menu__link" href="#">Home</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">About</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Services</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Team</a></li>
+    <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
+
+  </ul>
+  <hr style="width:800px">
+  <p>&copy;2024 EXQUISITE | All Rights Reserved</p>
+</footer>
+
+
+
+<script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/ae841bc882.js" crossorigin="anonymous"></script>
+<script src="/javascripts/popup.js"></script>
+<script  src="/javascripts/mainscript.js"></script>
+
+</body>
+
+</html>
